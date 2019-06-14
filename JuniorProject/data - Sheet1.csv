@@ -1,0 +1,10 @@
+CarId,mileage,condition,brand,year,Location,model,avail,price,color,img
+1,0,new,Honda,2019,NY,Civic Sedan,FALSE,40000,white,https://www.autoparkhonda.com/assets/stock/colormatched_02/white/640/cc_2019hoc02_02_640/cc_2019hoc020088_02_640_wx.jpg?height=400
+2,6000,used,Honda,2018,NY,Civic Sedan,FALSE,30000,gray,https://www.thelenhondabaycity.com/assets/stock/colormatched_02/white/640/cc_2018hoc020003_02_640/cc_2018hoc020003_02_640_si.jpg
+3,20000,used,Honda,2019,NY,Civic SedanRe,TRUE,25000,black,https://www.cstatic-images.com/car-pictures/xl/USC90HOC024E021001.png
+4,2000,used,Honda,2017,NJ,Civic SedanRe,TRUE,35000,white,https://img.sm360.ca/ir/w500c/images/newcar/2018/honda/civic-berline/ex-t/sedan/exteriorColors/11055_cc0640_001_wa.png
+5,80000,used,Honda,2015,NJ,Accord,TRUE,14995,white,"https://crdms.images.consumerreports.org/c_lfill,w_720,q_auto,f_auto/prod/cars/chrome/white/2015HON003c_1280_01"
+6,15000,used,Lasorsa,2017,NY,Sedan,TRUE,12500,red,https://inventory-dmg.assets-cdk.com/7/8/3/19557358387.jpg
+7,35000,used,Audi,2013,PA,Audi S1,TRUE,65000,yellow,"https://res.cloudinary.com/carsguide/image/upload/f_auto,fl_lossy,q_auto,t_cg_hero_large/v1/editorial/audi-s1-sportback-2014-%289%29.jpg"
+8,15046,used,Nissan,2016,NY,Pathfinder Platium,TRUE,26995,red,https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/16q2/667349/2016-nissan-pathfinder-platinum-awd-review-car-and-driver-photo-668118-s-original.jpg
+9,29700,used,GMC,2016,NY,Yukon SLT,FALSE,42995,dark red,https://f1.media.brightcove.com/7/1578086878/1578086878_4911615874001_4911565562001-vs.jpg?pubId=1578086878&videoId=4911565562001

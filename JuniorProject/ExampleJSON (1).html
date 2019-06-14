@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+
+	<head>
+		<style>
+			.car{
+				background-image:url(https://img.freepik.com/free-vector/blue-abstract-acrylic-brush-stroke-textured-background_53876-86373.jpg?size=626&ext=jpg);
+				padding:40px;
+				margin:15px;
+				display:inline-block;
+				border-radius:12px;
+				border-left-style: solid;
+				box-shadow:2px 2px 2px gray;
+				weight:2px;
+				height:700px;
+			}
+			.Seller{
+				background-image:url(https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg);
+				padding:40px;
+				margin:15px;
+				font-size:20px;
+				display:inline-block;
+				border-radius:12px;
+				/*filter: blur(2px);*/
+				border-left-style: solid;
+				box-shadow:2px 2px 2px gray;
+				weight:2px;
+				height:200px;
+			}
+			.Buyer{
+				background-image:url(https://img.freepik.com/free-vector/vibrant-pink-watercolor-painting-background_53876-58930.jpg?size=626&ext=jpg);
+				padding:40px;
+				margin:15px;
+				font-size:20px;
+				display:inline-block;
+				border-radius:12px;
+				/*filter: blur(2px);*/
+				border-left-style: solid;
+				box-shadow:2px 2px 2px gray;
+				weight:2px;
+				height:200px;
+			}
+			.NoCar{
+				background-color:lightcoral;
+				padding:40px;
+				margin:15px;
+				display:inline-block;
+				border-radius:12px;
+				weight:2px;
+				height:700px;
+				color:gray;
+				text-decoration: line-through;
+			}
+			.bookmark:hover{
+				background-color:lightgoldenrodyellow;
+				cursor: pointer;
+
+			}
+			.img{
+				width:300px;
+				height:200px;
+				background-color:white;
+				
+			}
+		</style>
+		
+		<script
+		  src="https://code.jquery.com/jquery-3.4.1.min.js"
+		  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		  crossorigin="anonymous">
+		</script>
+		<script>
+			var dataCar;
+			var dataB;
+			var dataS;
+			function getData(){
+			  $.get("http://10.79.164.105:8500/Sellers",function(results){
+				dataS=JSON.parse(results);
+				//document.write(data);
+			  });
+			  $.get("http://10.79.164.105:8500/Buyers",function(results){
+				dataB=JSON.parse(results);
+				//document.write(data);
+			  });
+			  $.get("http://10.79.164.105:8500/carInfo",function(results){
+				dataCar=JSON.parse(results);
+				//document.write(data);
+			  });
+			}
+			/*function getSeller(){
+				String build="";
+				for(var i=0; i<dataS[i].length;i++){
+					
+				}
+			}*/
+			function getInfo(){
+			  var build="";
+			  var output=document.getElementById("output");
+			  for(var i=0; i<dataCar.length;i++){
+					if(dataCar[i].avail=="TRUE"){
+							build+="<div class='car'>"
+					}else{
+							build+="<div class='NoCar'>"
+					}
+				build+="<p style='font-size:25px;'> <b>Car Id:</b> "+dataCar[i].CarId+"</br>"
+						+"<b>Brand: </b>"+dataCar[i].brand+"<br>"
+						+"<b>Model: </b> "+dataCar[i].model+" "+dataCar[i].year+"<br>"
+						+"<img class='img' src="+dataCar[i].img+" > <br>"
+						+"<b>Color: </b>"+dataCar[i].color+"<br>"
+						+"<b>Condition: </b>"+dataCar[i].condition
+						+" <br><b>Availability: </b>"+ dataCar[i].avail+"<br>"
+						+"<h1 style='color:red;'> Price: $"+dataCar[i].price+" </h1>"
+						+"<b> Mileage: </b>"+dataCar[i].mileage+" mi <br>"
+						+"<b>Pickup location: </b>"+dataCar[i].Location+"<br>"
+						+"</p>"
+					build+="<i class='fas fa-bookmark'><div class='bookmark'>Mark</div></i>";
+				build+="</div>";
+					
+			  }
+			  output.innerHTML=build;
+			}
+			function SellerInfo(){
+				var build="";
+				var output=document.getElementById("output");
+				for(var i=0; i<dataS.length;i++){
+					build+="<div class='Seller'>"+
+						"<b>UserName:</b> "+dataS[i].UserName+"<br>"
+						+"<b>Name: </b>"+dataS[i].LastN+" "+dataS[i].FirstN+"<br>"
+						+"<b>Tel: </b>"+dataS[i].Tel+"<br>"
+						+"<b>Location: </b>"+dataS[i].Location
+						+"</div>";
+					
+				}
+				output.innerHTML=build;
+				
+			}
+			function buyerInfo(){
+				var build="";
+				var output=document.getElementById("output");
+				for(var i=0; i<dataB.length;i++){
+					if(dataB[i].ReceiptNum!=="null"){
+						build+="<div class='Buyer'>"+
+							"<b>UserName:</b> "+dataB[i].BuyerUsername+"<br>"
+							+"<b>Name: </b>"+dataB[i].LastN+" "+dataB[i].FirstN+"<br>"
+							+"<b>Tel: </b>"+dataB[i].Tel+"<br>"
+							+"<b>Location: </b>"+dataB[i].Location
+							+"</div>";
+					}
+					
+				}
+				output.innerHTML=build;
+			}
+		
+		</script>
+	</head>
+
+	<head>
+		<title>Car Market</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	</head>
+<body >
+	<div class="jumbotron text-center" style="background-color:brown;color:white;">
+		<h1>101 Car Market</h1>
+		<p>Use your card to buy the best car!</p> 
+	</div>
+		<nav class="navbar navbar" style="background-color:darkred;">
+				<div class="navbar-header" >
+				
+					<a class="navbar-brand" style="cursor: pointer;color:white;" onclick="getInfo()"><i class="fas fa-car" style="color:white;"></i>Buy</a>
+					<a class="navbar-brand" style="cursor: pointer;color:white" onclick="SellerInfo()"><i class="far fa-address-book" style="color:white;"></i>Seller</a>
+					<a class="navbar-brand" style="cursor: pointer;color:white" onclick="buyerInfo()"><i class="far fa-address-book" style="color:white;"></i>Buyer</a>
+				</div>
+				<!--<ul class="nav navbar-nav">
+					<li class="active"><input type="button"  value="CarInfo"></li>
+				</ul>-->
+		</nav>
+		<div id="output">
+		</div>
+	</body>
+	
+	<body onload="getData()">
+		
+		
+	
+		
+	</body>
+</html>

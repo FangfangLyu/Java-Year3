@@ -1,0 +1,8 @@
+BuyerUsername,LastN,FirstN,CarId,Location,Tel,PayMethod,ReceiptNum
+CarFannn,Elisa,B.Jose,1,NY,929-656-6565,Visa,2018J01
+DealerJo,Johnson,Dwayne,2,NY,646-595-4645,MasterCard,2018JU02
+BillySCars,Miho,Cuadalupa,9,NY,646-525-9111,Cash,2019JA03
+Null,Null,Null,3,null,null,null,null
+Null,Null,Null,4,null,null,null,null
+Null,Null,Null,5,null,null,null,null
+Null,Null,Null,6,null,null,null,null

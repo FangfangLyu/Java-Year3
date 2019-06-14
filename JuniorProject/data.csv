@@ -1,0 +1,10 @@
+CarId,mileage,condition,brand,year,Location,model,avail,price
+1,0,new,Honda,2019,NY,Civic Sedan,FALSE,40000
+2,6000,used,Honda,2018,NY,Civic Sedan,FALSE,30000
+3,20000,used,Honda,2019,NY,Civic SedanRe,TRUE,25000
+4,2000,used,Honda,2017,NJ,Civic SedanRe,TRUE,35000
+5,80000,used,Honda,2015,NJ,Accord,TRUE,14995
+6,15000,used,Lasorsa,2017,NY,Sedan,TRUE,12500
+7,35000,used,Audi,2013,PA,AudiS1,TRUE,65000
+8,15046,used,Nissan,2016,NY,Pathfinder Platium,TRUE,26995
+9,29700,used,GMC,2016,NY,YukonSLT,FALSE,42995

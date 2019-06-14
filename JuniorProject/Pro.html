@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+	<head>
+		<style>
+			.car{
+				background-color:lightskyblue;
+				padding:40px;
+				margin:15px;
+				display:inline-block;
+				border-radius:12px;
+				border-left-style: solid;
+				box-shadow:2px 2px 2px gray;
+				weight:2px;
+				height:500px;
+			}
+			.NoCar{
+				background-color:lightcoral;
+				padding:40px;
+				margin:15px;
+				display:inline-block;
+				border-radius:12px;
+				weight:2px;
+				height:500px;
+				color:gray;
+			}
+			.car:hover{
+				background-color:lightgoldenrodyellow;
+			}
+			.NoCar:hover{
+				background-color:gainsboro;
+			}
+			.img{
+				width:300px;
+				height:200px;
+				background-color:white;
+				
+			}
+		</style>
+		
+		<script
+		  src="https://code.jquery.com/jquery-3.4.1.min.js"
+		  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		  crossorigin="anonymous">
+		</script>
+		<script>
+			var dataCar;
+			var dataB;
+			var dataS;
+			function getData(){
+			  $.get("http://10.79.164.105:8500/Sellers",function(results){
+				dataS=JSON.parse(results);
+				//document.write(data);
+			  });
+			  $.get("http://10.79.164.105:8500/Buyers",function(results){
+				dataB=JSON.parse(results);
+				//document.write(data);
+			  });
+			  $.get("http://10.79.164.105:8500/carInfo",function(results){
+				dataCar=JSON.parse(results);
+				//document.write(data);
+			  });
+			}
+			function getInfo(){
+			  var build="";
+			  var output=document.getElementById("output");
+			  for(var i=0; i<dataCar.length;i++){
+					if(dataCar[i].avail=="TRUE"){
+							build+="<div class='car'>"
+					}else{
+							build+="<div class='NoCar'>"
+					}
+				build+="<p style='font-size:25px;'> <b>Car Id:</b> "+dataCar[i].CarId+"</br>"
+						+"<b>Brand: </b>"+dataCar[i].brand+"<br>"
+						+"<b>Model: </b> "+dataCar[i].model+" "+dataCar[i].year+"<br>"
+						+"<img class='img' src="+dataCar[i].img+" > <br>"
+						+"<b>Color: </b>"+dataCar[i].color+"<br>"
+						+"<b>Condition: </b>"+dataCar[i].condition
+						+" <br><b>Availability: </b>"+ dataCar[i].avail+"<br>"
+						+"<h1 style='color:red;'> Price: $"+dataCar[i].price+" </h1>"
+						+"<b> Mileage: </b>"+dataCar[i].mileage+" mi <br>"
+						+"<b>Pickup location: </b>"+dataCar[i].Location+"<br>"
+						+"</p>"
+						+"<a href='user.html'><input type='button' onclick='getSeller() value='Seller'></a>";
+				
+				build+="</div>";
+					
+			  }
+			  output.innerHTML=build;
+			}
+		
+		</script>
+	</head>
+	
+	<body onload="getData()">
+		
+		<input type="button" onclick="getInfo()" value="CarInfo">
+		<h1> Car Trade Market</h1>
+		<div id="output">
+		</div>
+		
+	</body>
+</html>
